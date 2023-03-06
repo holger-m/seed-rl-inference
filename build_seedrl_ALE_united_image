@@ -1,0 +1,1 @@
+docker build -t seedrl_ale_united_image -f dockerfile_seedrl_ALE_united . 

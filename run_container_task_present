@@ -1,0 +1,7 @@
+docker run -it --name ale_task_present -h ale_task_present --network="host" --ipc=host \
+    -v ~/gitlab_mn/seed-rl-basteln/container_mount/code:/workspace/container_mount/code \
+    -v ~/seedrl_basteln_data/container_mount/data:/workspace/container_mount/data \
+    -v ~/seedrl_basteln_data/container_mount/ramdisk:/workspace/container_mount/ramdisk \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY \
+    ale_image_task_present bash

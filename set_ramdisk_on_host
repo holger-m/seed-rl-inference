@@ -1,0 +1,1 @@
+sudo mount -t tmpfs -o size=8192M tmpfs ~/seedrl_basteln_data/container_mount/ramdisk

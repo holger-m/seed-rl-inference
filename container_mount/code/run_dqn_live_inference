@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+
+# -*- coding: utf-8 -*-
+
+"""created 06.12.2021
+@author: holger mohr
+"""
+
+#from ale_python_interface import ALEInterface
+#import numpy as np
+#from PIL import Image
+#import torch
+#from torch import nn
+#import copy
+#import time
+#import fcntl
+
+from seed_rl.atari import networks
+from seed_rl.common import utils
+import math
+import tensorflow as tf
+import numpy as np
+import cv2
+import gym
+import time
+import fcntl
+
+
+# learner.py: num_actions = env.action_space.n 
+# env.py: env = gym.make(full_game_name, full_action_space=True)  --> num_actions = 18
+# learner.py: observation of env_output_specs equals env.observation_space.shape
+# Important: env is NOT from gym, but an instance of the AtariPreprocessing class defined
+# in atari_preprocessing.py. (see env.py: create_environment return statement)
+# In AtariPreprocessing, screen_size is hardcoded to 84 in __init__.
+# Moreover, observation_space has shape (screen_size,screen_size,1)
+# The last parameter stack_size is hardcoded to 4 in r2d2_main.py
+def create_agent(): # from r2d2_main.py
+    return networks.DuelingLSTMDQNNet(18, (84, 84, 1), 4)
+
+# Hardcoded values in flags
+def create_optimizer_fn(unused_final_iteration): # from r2d2_main.py
+    learning_rate_fn = lambda iteration: 0.00048
+    optimizer = tf.keras.optimizers.Adam(0.00048, epsilon=1e-3)
+    return optimizer, learning_rate_fn
+
+# Note: here, maximum over two screens is computed outside calling this function
+def _pool_and_resize(screen_buffer): # from atari_preprocessing.py
+    transformed_image = cv2.resize(screen_buffer, (84, 84), interpolation=cv2.INTER_LINEAR)
+    int_image = np.asarray(transformed_image, dtype=np.uint8)
+    return int_image
+
+
+def main():
+    
+    # code from here: https://www.tensorflow.org/guide/gpu#limiting_gpu_memory_growth
+    
+    gpus = tf.config.list_physical_devices('GPU')
+    if gpus:
+        try:
+            # Currently, memory growth needs to be the same across GPUs
+            for gpu in gpus:
+                tf.config.experimental.set_memory_growth(gpu, True)
+            logical_gpus = tf.config.list_logical_devices('GPU')
+            print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPUs")
+        except RuntimeError as e:
+            # Memory growth must be set before GPUs have been initialized
+            print(e)
+    
+    # init seed_rl
+    
+    agent = create_agent() # from learner.py
+    target_agent = create_agent() # from learner.py
+    
+    optimizer, learning_rate_fn = create_optimizer_fn(None) # from learner.py
+    
+    ckpt = tf.train.Checkpoint(agent=agent, target_agent=target_agent, optimizer=optimizer) # from learner.py
+    #ckpt.restore('/workspace/container_mount/data/Checkpoints_from_google/SpaceInvaders/0/ckpt-130')
+    #ckpt.restore('/workspace/container_mount/data/Checkpoints_from_google/Breakout/0/ckpt-98')
+    #TODO: breakout results in loop at the end of round 1, test other ckpt files
+    ckpt.restore('/workspace/container_mount/data/Checkpoints_from_google/Enduro/1/ckpt-118')
+    
+    #env = gym.make('SpaceInvadersNoFrameskip-v4', full_action_space=True) # from env.py
+    #env = gym.make('BreakoutNoFrameskip-v4', full_action_space=True) # from env.py
+    env = gym.make('EnduroNoFrameskip-v4', full_action_space=True) # from env.py
+    env.seed(0)  # from learner.py: env = create_env_fn(0, FLAGS) and env.py: env.seed(task)
+
+    env.reset()
+
+    env.step(0)  # no action
+
+    obs_dims = env.observation_space # from atari_preprocessing.py
+
+    screen_buffer = np.empty((obs_dims.shape[0], obs_dims.shape[1]), dtype=np.uint8) # from atari_preprocessing.py
+
+    env.observation_space.shape = (84, 84, 1) # set to these values in atari_preprocessing.py in function observation_space: shape=(screen_size,screen_size,1) with screen_size=84 in __init__ 
+
+    # from learner.py:
+    env_output_specs = utils.EnvOutput(
+        tf.TensorSpec([], tf.float32, 'reward'),
+        tf.TensorSpec([], tf.bool, 'done'),
+        tf.TensorSpec(env.observation_space.shape, env.observation_space.dtype,
+                      'observation'),
+        tf.TensorSpec([], tf.bool, 'abandoned'),
+        tf.TensorSpec([], tf.int32, 'episode_step'))
+    
+    action_specs = tf.TensorSpec([], tf.int32, 'action') # from learner.py
+    agent_input_specs = (action_specs, env_output_specs) # from learner.py
+
+    initial_agent_state = agent.initial_state(1) # from learner.py
+    agent_state_specs = tf.nest.map_structure(lambda t: tf.TensorSpec(t.shape[1:], t.dtype), initial_agent_state) # from learner.py
+    input_ = tf.nest.map_structure(lambda s: tf.zeros([1] + list(s.shape), s.dtype), agent_input_specs) # from learner.py
+
+    current_agent_state = initial_agent_state
+    
+    
+    # live play
+    
+    n_frames_15hz = 27000
+    
+    action = 0
+    
+    response_flag_1 = np.ones((1, 1), dtype=np.uint8)
+    screen_flag_0 = np.zeros((1, 1), dtype=np.uint8)
+    action_ind_ALE = np.zeros((1, 1), dtype=np.uint8)
+    
+    last_15hz_screen_1_84_84_1 = np.empty([1, 84, 84, 1], dtype=np.uint8)
+    
+    time_start = time.time()
+    
+    for frame_no in range(n_frames_15hz):
+        
+        repeat_wait_flag = True
+        
+        while repeat_wait_flag:
+            fd_screen = open('/workspace/container_mount/ramdisk/screenlock', 'r')
+            fcntl.flock(fd_screen, fcntl.LOCK_EX)
+            screen_flag_csv = np.loadtxt(open("/workspace/container_mount/ramdisk/screen_flag.csv"))
+            fcntl.flock(fd_screen, fcntl.LOCK_UN)
+            fd_screen.close()
+            
+            if (screen_flag_csv == 1):
+                time_end = time.time()
+                #print(frame_no)
+                #print(time_end - time_start)
+                #print(" ")
+                time_start = time.time()
+                np.savetxt("/workspace/container_mount/ramdisk/screen_flag.csv", screen_flag_0, fmt='%01.0u')
+                repeat_wait_flag = False
+            else:
+                time.sleep(0.01)
+                
+        last_15hz_screen = np.load('/workspace/container_mount/ramdisk/last_15hz_screen.npy')
+        episode_end_flag = np.load('/workspace/container_mount/ramdisk/episode_end_flag.npy')
+        
+        last_15hz_screen_max = np.amax(last_15hz_screen, axis=2) # take maximum over last two screens
+        last_15hz_screen_max_84x84 = _pool_and_resize(last_15hz_screen_max)
+        last_15hz_screen_1_84_84_1[0, :, :, 0] = last_15hz_screen_max_84x84
+        
+        input_action, input_env = input_  # TODO: check in learner.py what is going on...
+        input_env = input_env._replace(observation=tf.convert_to_tensor(last_15hz_screen_1_84_84_1, dtype=np.uint8))
+        input_ = (input_action, input_env)
+        
+        if episode_end_flag[0] == 1:
+            current_agent_state = initial_agent_state
+            print(' ')
+            print('Episode ended, set LSTM core to initial state')
+        
+        #current_agent_state = initial_agent_state  # test whether always initial state decreases performance
+        
+        agent_out = agent(input_, current_agent_state)
+        
+        AgentOutput, AgentState = agent_out
+        
+        current_agent_state = AgentState
+        
+        action = AgentOutput.action
+        
+        #print(action)
+        
+        action_ind_ALE[0] = action
+
+        np.savetxt('/workspace/container_mount/ramdisk/action_ind_ALE.csv', action_ind_ALE, fmt='%01.0u')
+        
+        fd_response = open('/workspace/container_mount/ramdisk/responselock', 'r')
+        fcntl.flock(fd_response, fcntl.LOCK_EX)
+        np.savetxt('/workspace/container_mount/ramdisk/response_flag.csv', response_flag_1, fmt='%01.0u')
+        fcntl.flock(fd_response, fcntl.LOCK_UN)
+        fd_response.close()
+
+
+if __name__ == '__main__':
+    main()
+    

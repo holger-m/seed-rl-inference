@@ -1,0 +1,8 @@
+docker run -it --gpus all --name seedrl_ALE_united_container -h seedrl_ALE_united_container \
+    --network="host" --ipc=host \
+    -v ~/gitlab_mn/seed-rl-basteln/container_mount/code:/workspace/container_mount/code \
+    -v ~/seedrl_basteln_data/container_mount/data:/workspace/container_mount/data \
+    -v ~/seedrl_basteln_data/container_mount/ramdisk:/workspace/container_mount/ramdisk \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY \
+    seedrl_ale_united_image bash

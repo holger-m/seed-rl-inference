@@ -1,0 +1,21 @@
+Results for 108k ALE frames (27k DNN frames)
+
+Mean across completed episodes (or end-of-session score, if none completed)
+
+Enduro:
+/0/ckpt-98: 1 episode, 1985 points
+/1/ckpt-118: 0 episodes, 2315 points
+/2/ckpt-110: 0 episodes, 2317 points
+/3/ckpt-123: 0 episodes, 2331 points
+
+Space Invaders:
+/0/ckpt-130: 11 episodes, 3618.6 points
+/1/ckpt-101: 2 episodes, 11282.5 points
+/2/ckpt-126: 11 episodes, 3614.1 points
+/3/ckpt-101: 13 episodes, 3618.1 points
+
+Breakout:
+/0/ckpt-98: 0 episodes, 849 points
+/1/ckpt-96: 4 episodes, 861.5 points
+/2/ckpt-127: 6 episodes, 855.5 points
+/3/ckpt-123: 6 episodes, 747.5 points

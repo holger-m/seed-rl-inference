@@ -1,0 +1,1 @@
+docker build -t cuda_11_2_image -f dockerfile_cuda_11_2 . 

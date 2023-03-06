@@ -1,0 +1,5 @@
+docker run -it --gpus all --name seedrl_basteln_container -h seedrl_basteln_container \
+    -v ~/gitlab_mn/seed-rl-basteln/container_mount/code:/workspace/container_mount/code \
+    -v ~/seedrl_basteln_data/container_mount/data:/workspace/container_mount/data \
+    -v ~/seedrl_basteln_data/container_mount/ramdisk:/workspace/container_mount/ramdisk \
+    seedrl_basteln_image bash

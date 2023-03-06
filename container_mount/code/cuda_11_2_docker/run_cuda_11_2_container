@@ -1,0 +1,3 @@
+docker run -it --gpus all --name cuda_11_2_container -h cuda_11_2_container \
+    -v ~/seedrl_basteln_data/container_mount/data:/workspace/container_mount/data \
+    cuda_11_2_image bash

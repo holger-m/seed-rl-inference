@@ -1,0 +1,28 @@
+FROM python:3.10-bullseye
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y cmake
+# below from https://github.com/Didstopia/SDL2-Dockerfile/blob/master/Dockerfile
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y xutils-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libsdl2-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libsdl2-gfx-dev
+#RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ibsdl2-image-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libsdl2-mixer-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libsdl2-net-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libsdl2-ttf-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libreadline6-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libncurses5-dev
+
+RUN git clone --depth 1 --branch v0.6.1 https://github.com/mgbellemare/Arcade-Learning-Environment.git /workspace/Arcade-Learning-Environment
+
+RUN cd /workspace/Arcade-Learning-Environment && mkdir build
+RUN cd /workspace/Arcade-Learning-Environment/build && cmake -DUSE_SDL=OFF -DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON ..
+RUN cd /workspace/Arcade-Learning-Environment/build && make -j 4
+
+RUN cd /workspace/Arcade-Learning-Environment && pip install .
+
+RUN pip install numpy
+RUN pip install pygame
+

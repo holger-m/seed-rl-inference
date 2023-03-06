@@ -1,0 +1,77 @@
+root@seedrl_basteln_container:/tmp# python -m atari_py.import_roms /workspace/container_mount/data/ROMs
+copying journey_escape.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Data Age/Journey Escape.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/journey_escape.bin
+copying star_gunner.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Telesys/Stargunner.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/star_gunner.bin
+copying gopher.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/U.S. Games Corporation/Gopher.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/gopher.bin
+copying name_this_game.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/U.S. Games Corporation/Name This Game.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/name_this_game.bin
+copying donkey_kong.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Coleco/Donkey Kong.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/donkey_kong.bin
+copying zaxxon.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Coleco/Zaxxon.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/zaxxon.bin
+copying venture.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Coleco/Venture.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/venture.bin
+copying time_pilot.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Coleco/Time Pilot.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/time_pilot.bin
+copying carnival.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Coleco/Carnival.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/carnival.bin
+copying up_n_down.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/SEGA/Up 'n Down.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/up_n_down.bin
+copying asteroids.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Asteroids [no copyright].bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/asteroids.bin
+copying kangaroo.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Kangaroo.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/kangaroo.bin
+copying crazy_climber.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Crazy Climber.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/crazy_climber.bin
+copying elevator_action.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Elevator Action (Prototype).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/elevator_action.bin
+copying video_pinball.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Video Pinball - Arcade Pinball.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/video_pinball.bin
+copying pong.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Video Olympics - Pong Sports.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/pong.bin
+copying krull.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Krull.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/krull.bin
+copying surround.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Surround - Chase.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/surround.bin
+copying berzerk.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Berzerk.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/berzerk.bin
+copying space_invaders.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Space Invaders.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/space_invaders.bin
+copying battle_zone.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Battlezone.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/battle_zone.bin
+copying bowling.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Bowling.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/bowling.bin
+copying phoenix.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Phoenix.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/phoenix.bin
+copying solaris.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Solaris.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/solaris.bin
+copying road_runner.bin from patched version of /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Road Runner.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/road_runner.bin
+copying centipede.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Centipede.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/centipede.bin
+copying defender.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Defender.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/defender.bin
+copying ms_pacman.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Ms. Pac-Man.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/ms_pacman.bin
+copying yars_revenge.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Yars' Revenge.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/yars_revenge.bin
+copying gravitar.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Gravitar.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/gravitar.bin
+copying breakout.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Breakout - Breakaway IV.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/breakout.bin
+copying double_dunk.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Double Dunk.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/double_dunk.bin
+copying galaxian.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Atari - Sears/Galaxian.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/galaxian.bin
+copying wizard_of_wor.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/CBS Electronics/Wizard of Wor.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/wizard_of_wor.bin
+copying air_raid.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Men-A-Vision/Air Raid (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/air_raid.bin
+copying trondead.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/M Network - Mattel Electronics/TRON - Deadly Discs.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/trondead.bin
+copying koolaid.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/M Network - Mattel Electronics/Kool-Aid Man.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/koolaid.bin
+copying pooyan.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Konami/Pooyan.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/pooyan.bin
+copying demon_attack.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Imagic/Demon Attack.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/demon_attack.bin
+copying atlantis.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Imagic/Atlantis.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/atlantis.bin
+copying lost_luggage.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Apollo - Games by Apollo/Lost Luggage [no opening scene].bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/lost_luggage.bin
+copying alien.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/20th Century Fox Video Games/Alien.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/alien.bin
+copying bank_heist.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/20th Century Fox Video Games/Bank Heist.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/bank_heist.bin
+copying pitfall.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Pitfall! - Pitfall Harry's Jungle Adventure.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/pitfall.bin
+copying hero.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/H.E.R.O..bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/hero.bin
+copying kung_fu_master.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Kung-Fu Master.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/kung_fu_master.bin
+copying fishing_derby.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Fishing Derby.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/fishing_derby.bin
+copying skiing.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Skiing.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/skiing.bin
+copying seaquest.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Seaquest.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/seaquest.bin
+copying robotank.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Robot Tank.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/robotank.bin
+copying boxing.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Boxing.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/boxing.bin
+copying tennis.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Tennis.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/tennis.bin
+copying riverraid.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/River Raid.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/riverraid.bin
+copying private_eye.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Private Eye.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/private_eye.bin
+copying kaboom.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Kaboom!.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/kaboom.bin
+copying ice_hockey.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Ice Hockey.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/ice_hockey.bin
+copying freeway.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Freeway.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/freeway.bin
+copying enduro.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Enduro.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/enduro.bin
+copying chopper_command.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Chopper Command.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/chopper_command.bin
+copying beam_rider.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Beamrider.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/beam_rider.bin
+copying frostbite.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Activision/Frostbite.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/frostbite.bin
+copying amidar.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Parker Brothers/Amidar.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/amidar.bin
+copying montezuma_revenge.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Parker Brothers/Montezuma's Revenge - Featuring Panama Joe.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/montezuma_revenge.bin
+copying tutankham.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Parker Brothers/Tutankham.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/tutankham.bin
+copying frogger.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Parker Brothers/Frogger.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/frogger.bin
+copying jamesbond.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Parker Brothers/James Bond 007.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/jamesbond.bin
+copying qbert.bin from /workspace/container_mount/data/ROMs/HC ROMS/BY COMPANY/Parker Brothers/Q-bert.bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/qbert.bin
+copying king_kong.bin from /workspace/container_mount/data/ROMs/HC ROMS/PAL VERSIONS OF NTSC ORIGINALS/King Kong (1982) (Tigervision - Software Electronics Corporation, Karl T. Olinger - Teldec) (7-001 - 3.60001 VE) (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/king_kong.bin
+copying keystone_kapers.bin from /workspace/container_mount/data/ROMs/HC ROMS/PAL VERSIONS OF NTSC ORIGINALS/Keystone Kapers - Raueber und Gendarm (1983) (Activision, Garry Kitchen - Ariola) (EAX-025, EAX-025-04I - 711 025-725) (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/keystone_kapers.bin
+copying sir_lancelot.bin from /workspace/container_mount/data/ROMs/HC ROMS/PAL VERSIONS OF NTSC ORIGINALS/Sir Lancelot (1983) (Xonox - K-Tel Software - Product Guild, Anthony R. Henderson) (99006, 6220) (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/sir_lancelot.bin
+copying pacman.bin from /workspace/container_mount/data/ROMs/HC ROMS/PAL VERSIONS OF NTSC ORIGINALS/Pac-Man (1982) (Atari, Tod Frye) (CX2646) (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/pacman.bin
+copying mr_do.bin from /workspace/container_mount/data/ROMs/HC ROMS/PAL VERSIONS OF NTSC ORIGINALS/Mr. Do! (1983) (CBS Electronics, Ed English) (4L4478) (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/mr_do.bin
+copying laser_gates.bin from /workspace/container_mount/data/ROMs/HC ROMS/PAL VERSIONS OF NTSC ORIGINALS/Laser Gates (AKA Innerspace) (1983) (Imagic, Dan Oliver) (720118-2A, 13208, EIX-007-04I) (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/laser_gates.bin
+copying adventure.bin from /workspace/container_mount/data/ROMs/HC ROMS/PAL VERSIONS OF NTSC ORIGINALS/Adventure (1980) (Atari, Warren Robinett) (CX2613, CX2613P) (PAL).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/adventure.bin
+copying assault.bin from /workspace/container_mount/data/ROMs/HC ROMS/NTSC VERSIONS OF PAL ORIGINALS/Assault (AKA Sky Alien) (1983) (Bomb - Onbase) (CA281).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/assault.bin
+copying asterix.bin from /workspace/container_mount/data/ROMs/ROMS/Asterix (AKA Taz) (1984) (Atari, Jerome Domurat, Steve Woita) (CX2696).bin to /usr/local/lib/python3.6/dist-packages/atari_py/atari_roms/asterix.bin

@@ -1,0 +1,41 @@
+FROM tensorflow/tensorflow:2.4.1-gpu
+
+RUN apt-get update && apt-get install -y tmux ffmpeg libsm6 libxext6 libxrender-dev wget unrar unzip
+
+# Install Atari environment seedrl style
+RUN pip3 install gym[atari]==0.18.3
+RUN pip3 install atari-py
+RUN pip3 install tensorflow_probability==0.11.0
+
+# Install standalone ALE (without gym)
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git-all \
+    build-essential \
+    cmake
+
+RUN git clone --depth 1 --branch v0.6.1 https://github.com/mgbellemare/Arcade-Learning-Environment.git /workspace/Arcade-Learning-Environment
+
+RUN cd /workspace/Arcade-Learning-Environment && mkdir build
+RUN cd /workspace/Arcade-Learning-Environment/build && cmake -DUSE_SDL=OFF -DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON ..
+RUN cd /workspace/Arcade-Learning-Environment/build && make -j 4
+
+RUN cd /workspace/Arcade-Learning-Environment && pip3 install .
+
+RUN pip3 install numpy
+RUN pip3 install pygame
+
+# add opengl support to container, see also
+# https://medium.com/@benjamin.botto/opengl-and-cuda-applications-in-docker-af0eece000f1
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-opengl \
+    mesa-utils \
+    libglvnd0 \
+    libgl1 \
+    libglx0 \
+    libegl1 \
+    libxext6 \
+    libx11-6 \
+    freeglut3-dev
+
+# add nvidia display to container, see also URL above
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
